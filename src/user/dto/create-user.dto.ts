@@ -3,4 +3,5 @@ export class CreateUserDto {
   fullname: string;
   login: string;
   pwd: string;
+  date_ajout: Date;
 }

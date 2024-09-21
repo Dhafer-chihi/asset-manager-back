@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity({ name: 'article' })
 export class Article {
@@ -14,12 +14,12 @@ export class Article {
   @Column()
   name: string;
 
-  @Column('double')
+  @Column('float')
   prix: number;
 
   @Column()
   qte: number;
 
-  @CreateDateColumn()
+  @Column({ type: 'timestamp' })
   date_ajout: Date;
 }

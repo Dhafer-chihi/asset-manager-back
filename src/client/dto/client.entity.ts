@@ -1,18 +1,8 @@
 import { Produit } from 'src/produit/dto/produit.entity';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'client' })
 export class Client {
-  @Column({ default: true })
-  //@Generated('increment')
-  compt: number;
-
   @PrimaryGeneratedColumn()
   id_client: number;
 
@@ -20,16 +10,10 @@ export class Client {
   type: string;
 
   @Column()
-  entreprise: string;
-
-  @Column()
-  mat: string;
-
-  @Column()
   fullname: string;
 
   @Column()
-  cin: number;
+  identifiant: string;
 
   @Column()
   email: string;
@@ -40,9 +24,9 @@ export class Client {
   @Column('longtext', { nullable: true })
   note: string;
 
-  @CreateDateColumn({ nullable: true })
+  @Column({ type: 'timestamp' })
   date_ajout: Date;
 
-  @OneToMany(() => Produit, (produit) => produit.sn)
-  produit: Produit[];
+  @OneToMany(() => Produit, (produit) => produit.client)
+  produits: Produit[];
 }

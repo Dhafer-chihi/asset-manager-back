@@ -12,18 +12,20 @@ import { Client } from './client/dto/client.entity';
 import { Article } from './article/dto/article.entity';
 import { Produit } from './produit/dto/produit.entity';
 import { EtatModule } from './etat/etat.module';
+import { CategoryModule } from './category/category.module';
+import { Category } from './category/dto/category.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'mysql-dhafer.alwaysdata.net',
+      host: 'localhost',
       port: 3306,
-      username: 'dhafer',
-      password: 'slach2021',
-      database: 'dhafer_stock',
-      entities: [User, Client, Article, Produit],
+      username: 'root',
+      password: '',
+      database: 'test',
+      entities: [User, Client, Article, Produit, Category],
       synchronize: true,
     }),
     UserModule,
@@ -31,6 +33,7 @@ import { EtatModule } from './etat/etat.module';
     ProduitModule,
     ArticleModule,
     EtatModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -16,7 +16,11 @@ export class ProduitService {
   }
 
   async findAll() {
-    return await this.produitRepositery.find();
+    return await this.produitRepositery.find({
+      relations: {
+        client: true,
+      },
+    });
   }
 
   async findOne(sn: string) {

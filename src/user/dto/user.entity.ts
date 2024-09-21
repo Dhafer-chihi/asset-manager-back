@@ -16,4 +16,7 @@ export class User {
 
   @Column()
   pwd: string;
+
+  @Column({ type: 'timestamp' })
+  date_ajout: Date;
 }
